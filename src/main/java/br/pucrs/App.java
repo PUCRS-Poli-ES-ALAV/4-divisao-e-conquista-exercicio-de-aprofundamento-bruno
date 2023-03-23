@@ -128,7 +128,6 @@ public class App{
             else return b;  
         }
     
-
         
         public static long multiply(long x, long y, long n) { //EX4
             if (n == 1) {
