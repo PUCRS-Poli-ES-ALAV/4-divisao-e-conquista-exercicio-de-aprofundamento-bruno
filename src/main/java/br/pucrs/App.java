@@ -30,6 +30,12 @@ public class App{
         
         System.out.println("\n Vetor Ordenado: " + Arrays.toString(mergeSort(vet)));
 
+        System.out.println(" \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+
+        System.out.println(" \n Multiply: " + multiply(23, 24, 6));
+
+        System.out.println(" \n -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+
     }
 
         private static int getRandomNumberRange(int min, int max)
@@ -122,5 +128,27 @@ public class App{
             else return b;  
         }
     
-}
 
+        
+        public static long multiply(long x, long y, long n) { //EX4
+            if (n == 1) {
+                counterC++;
+                return x * y;
+            } else {
+                long m = (n / 2);
+                long a = (long) (x / Math.pow(2, m));
+                long b = (long) (x % Math.pow(2, m));
+                long c = (long) (y / Math.pow(2, m));
+                long d = (long) (y % Math.pow(2, m));
+                long e = multiply(a, c, m);
+                counterC++;
+                long f = multiply(b, d, m);
+                counterC++;
+                long g = multiply(b, c, m);
+                counterC++;
+                long h = multiply(a, d, m);
+                counterC++;
+                return (long) (Math.pow(2, (2 * m) * e) + Math.pow(2, m * (g + h)) + f);
+            }
+        }
+    }
